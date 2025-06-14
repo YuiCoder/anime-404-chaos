@@ -1,4 +1,185 @@
-
 <!DOCTYPE html>
-<!-- (HTML content truncated for brevity) -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anime 404: Chaos Mode</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive;
+      background: black;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 300% 300%;
+      animation: bgAnim 10s infinite linear;
+      z-index: -2;
+    }
+
+    #vhs {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://media.tenor.com/jWb0AYh6UBIAAAAC/vhs.gif') repeat;
+      opacity: 0.06;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @keyframes bgAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glitch {
+      font-size: 5rem;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: glitchAnim 1s infinite;
+      z-index: 10;
+      text-shadow: 0 0 10px #f0f, 0 0 20px #0ff;
+    }
+
+    @keyframes glitchAnim {
+      0%, 100% { text-shadow: 2px 2px red, -2px -2px cyan; }
+      50% { text-shadow: -2px 2px green, 2px -2px magenta; }
+    }
+
+    .anime-img {
+      position: absolute;
+      animation: float 4s infinite ease-in-out, spin 20s infinite linear;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .random-button {
+      position: absolute;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.8);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 9;
+      animation: glitchAnim 2s infinite;
+    }
+
+    #rickroll {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      background: red;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div id="vhs"></div>
+  <div class="glitch">404 - Anime Chaos</div>
+
+  <button class="random-button" style="top:20%;left:10%;" onclick="openRandomSite()">DO NOT PRESS</button>
+  <button class="random-button" style="top:60%;left:80%;" onclick="openRandomSite()">Press me UwU</button>
+  <button class="random-button" style="top:40%;left:50%;" onclick="openRandomSite()">What's Real?</button>
+  <button class="random-button" style="top:10%;left:70%;" onclick="openRandomSite()">Analog Switch</button>
+  <button class="random-button" style="top:80%;left:30%;" onclick="open4Tabs()">Split Reality</button>
+  <button id="rickroll" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">Secret 😳</button>
+
+  <script>
+    const images = [
+      'https://i.pinimg.com/736x/ae/e2/54/aee254dc0c1b2d6f442b4cdd0e36e308.jpg',
+      'https://i.pinimg.com/originals/87/ce/6b/87ce6b248776b82e6d0eac68a7d254fb.gif',
+      'https://i.pinimg.com/originals/26/d6/f0/26d6f0df7f3fa78628c7e3f6fc1a59c3.gif',
+      'https://i.pinimg.com/originals/3c/bb/f6/3cbbf665e355493a8d1db147093b8fe7.gif',
+      'https://i.pinimg.com/originals/90/18/01/901801dd3d9e19486d216f232a8e3c35.jpg',
+      'https://i.pinimg.com/originals/b1/e1/6e/b1e16e22c9ac8e0860cf09d1d4a9e9ce.jpg'
+    ];
+
+    for (let i = 0; i < 50; i++) {
+      const img = document.createElement('img');
+      img.src = images[Math.floor(Math.random() * images.length)];
+      img.className = 'anime-img';
+      img.style.top = Math.random() * 100 + '%';
+      img.style.left = Math.random() * 100 + '%';
+      img.style.width = 100 + Math.random() * 200 + 'px';
+      img.style.animationDuration = (3 + Math.random() * 5) + 's';
+      document.body.appendChild(img);
+    }
+
+    const sites = [
+      'https://myanimelist.net',
+      'https://aniwave.to',
+      'https://www.reddit.com/r/mandelaeffect',
+      'https://www.backrooms-wiki.com',
+      'https://theuselessweb.com',
+      'https://scp-wiki.wikidot.com/'
+    ];
+
+    function openRandomSite() {
+      const url = sites[Math.floor(Math.random() * sites.length)];
+      window.open(url, '_blank');
+    }
+
+    function open4Tabs() {
+      for (let i = 0; i < 4; i++) {
+        window.open(sites[Math.floor(Math.random() * sites.length)], '_blank');
+      }
+    }
+
+    // Play random audio
+    const audioList = [
+      'https://files.catbox.moe/y8wbx5.mp3',
+      'https://files.catbox.moe/7ag4eq.mp3',
+      'https://files.catbox.moe/27csva.mp3'
+    ];
+    const audio = new Audio(audioList[Math.floor(Math.random() * audioList.length)]);
+    audio.loop = true;
+    audio.volume = 0.6;
+    window.addEventListener('click', () => audio.play(), { once: true });
+
+    // Deep 4th wall breaks and simulated psychological horror
+    setTimeout(() => {
+      alert("You shouldn't be here.");
+      setTimeout(() => {
+        alert("This isn't just a 404 page.");
+        setTimeout(() => {
+          alert("Something's wrong with your memory.");
+          setTimeout(() => {
+            alert("Check your files.");
+          }, 3000);
+        }, 3000);
+      }, 3000);
+    }, 3000);
+
+    // Close tab after 60 seconds
+    setTimeout(() => {
+      window.open('about:blank', '_self');
+      window.close();
+    }, 60000);
+  </script>
+</body>
 </html>
