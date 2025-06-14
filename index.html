@@ -111,12 +111,12 @@
 
   <script>
     const images = [
-      'https://i.pinimg.com/736x/ae/e2/54/aee254dc0c1b2d6f442b4cdd0e36e308.jpg',
-      'https://i.pinimg.com/originals/87/ce/6b/87ce6b248776b82e6d0eac68a7d254fb.gif',
-      'https://i.pinimg.com/originals/26/d6/f0/26d6f0df7f3fa78628c7e3f6fc1a59c3.gif',
-      'https://i.pinimg.com/originals/3c/bb/f6/3cbbf665e355493a8d1db147093b8fe7.gif',
-      'https://i.pinimg.com/originals/90/18/01/901801dd3d9e19486d216f232a8e3c35.jpg',
-      'https://i.pinimg.com/originals/b1/e1/6e/b1e16e22c9ac8e0860cf09d1d4a9e9ce.jpg'
+      'https://i.imgur.com/FFCivHa.jpeg,'
+      'https://i.imgur.com/gMsGFpe.jpeg',
+      'https://i.imgur.com/GBlOPYE.jpeg',
+      'https://i.imgur.com/pqj2enF.jpeg',
+      'https://i.imgur.com/fgKaeBS.gif',
+      'https://i.imgur.com/CuDuQha.png'
     ];
 
     for (let i = 0; i < 50; i++) {
@@ -150,11 +150,12 @@
       }
     }
 
-    // Play random audio
+    // Play random audio + AI anime voice clips
     const audioList = [
-      'https://files.catbox.moe/y8wbx5.mp3',
-      'https://files.catbox.moe/7ag4eq.mp3',
-      'https://files.catbox.moe/27csva.mp3'
+      'https://files.catbox.moe/y8wbx5.mp3', // eerie background loop
+      'https://files.catbox.moe/7ag4eq.mp3', // glitch effect
+      'https://files.catbox.moe/27csva.mp3', // distorted ambient
+      'https://cdn.openai.com/dall-e-2/audio/sample-voice-female.mp3' // simulated anime voice
     ];
     const audio = new Audio(audioList[Math.floor(Math.random() * audioList.length)]);
     audio.loop = true;
@@ -169,11 +170,22 @@
         setTimeout(() => {
           alert("Something's wrong with your memory.");
           setTimeout(() => {
-            alert("Check your files.");
+            alert("Check your desktop folder.");
+            const link = document.createElement('a');
+            link.download = 'warning.txt';
+            const blob = new Blob(["You were warned."], { type: 'text/plain' });
+            link.href = URL.createObjectURL(blob);
+            link.click();
           }, 3000);
         }, 3000);
       }, 3000);
     }, 3000);
+
+    // Random scream/jumpscare
+    setTimeout(() => {
+      const scream = new Audio('https://www.myinstants.com/media/sounds/scream.mp3');
+      scream.play();
+    }, 20000);
 
     // Close tab after 60 seconds
     setTimeout(() => {
